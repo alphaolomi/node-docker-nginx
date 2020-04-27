@@ -10,6 +10,7 @@
     "make-docs": "apidoc -i src/api/routes/ -o docs/",
     "dev": "nodemon",
     "start": "node ./dist/app.js",
+    "lint": "eslint ./src/**/*.ts --fix-dry-run",
     "test": "jest"
   },
   "license": "MIT",
