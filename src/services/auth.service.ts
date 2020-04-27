@@ -13,9 +13,7 @@ import { IResponse } from '../responses/response';
 
 @injectable()
 export class AuthService {
-    constructor(@inject(TYPES.UserTransformer) private userTransformer: UserTransformer) {
-
-    }
+    constructor(@inject(TYPES.UserTransformer) private userTransformer: UserTransformer) {}
 
     async signUp(newUser: IUser): Promise<IResponse<ISignUpResponse>> {
         const user = await User.findOne({ where: { email: newUser.email } });
@@ -26,10 +24,9 @@ export class AuthService {
                 return {
                     data: {
                         message: 'User created successfully!',
-                        user: { data: this.userTransformer.transform(createdUser) }
-                    }
+                        user: { data: this.userTransformer.transform(createdUser) },
+                    },
                 };
-
             } catch (error) {
                 throw new MessageCodeError(error.message, 500);
             }
@@ -42,18 +39,21 @@ export class AuthService {
         const user = await User.findOne({ where: { email } });
         if (user) {
             if (bcrypt.compareSync(password, user.password)) {
-                const token = jwt.sign({
-                    id: user.id,
-                    email: user.email,
-                    name: `${user.firstName} ${user.lastName}`
-                }, config.jwtSecret);
+                const token = jwt.sign(
+                    {
+                        id: user.id,
+                        email: user.email,
+                        name: `${user.firstName} ${user.lastName}`,
+                    },
+                    config.jwtSecret,
+                );
                 return {
                     data: {
                         message: 'User logged in successfully!',
                         token,
-                        user: { data: this.userTransformer.transform(user) }
-                    }
-                }
+                        user: { data: this.userTransformer.transform(user) },
+                    },
+                };
             } else {
                 throw new MessageCodeError('Incorrect password!', 400);
             }

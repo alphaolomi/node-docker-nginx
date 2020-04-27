@@ -7,5 +7,5 @@ export const sequelize = new Sequelize({
     username: config.dbUsername,
     host: config.dbHost,
     password: config.dbPassword,
-    storage: ':memory:'
+    storage: ':memory:',
 });

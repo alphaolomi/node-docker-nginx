@@ -11,6 +11,7 @@
     "dev": "nodemon",
     "start": "node ./dist/app.js",
     "lint": "eslint ./src/**/*.ts --fix-dry-run",
+    "fix": "eslint ./src/**/*.ts --fix",
     "test": "jest"
   },
   "license": "MIT",

@@ -4,7 +4,7 @@ import { Dialect, IConfig } from '../interface/config';
 const environment = dotenv.config();
 
 if (!environment) {
-    throw new Error('Couldn\'t find env file!');
+    throw new Error("Couldn't find env file!");
 }
 
 export const config: IConfig = {
@@ -16,5 +16,5 @@ export const config: IConfig = {
     dbDialect: Dialect.MY_SQL,
     jwtSecret: process.env.JWT_SECRET || 'secret',
     sentryKey: process.env.RAVEN || '',
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
 };

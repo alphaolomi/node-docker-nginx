@@ -1,4 +1,3 @@
-
 // An abstract class to transform the object retrieved from database to a response model
 import { injectable } from 'inversify';
 

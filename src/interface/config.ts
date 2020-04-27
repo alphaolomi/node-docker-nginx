@@ -7,7 +7,7 @@ export interface IConfig {
     dbDialect: Dialect;
     jwtSecret: string;
     sentryKey: string;
-    environment: string
+    environment: string;
 }
 
 export enum Dialect {
@@ -15,5 +15,5 @@ export enum Dialect {
     POSTGRES = 'postgres',
     SQLITE = 'sqlite',
     MARIA_DB = 'mariadb',
-    MSSQL = 'mssql'
+    MSSQL = 'mssql',
 }

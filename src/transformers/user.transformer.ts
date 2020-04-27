@@ -10,6 +10,6 @@ export class UserTransformer extends TransformerAbstract<IUser> {
             lastName: submission.lastName,
             email: submission.email,
             profilePic: submission.profilePic || '',
-        }
+        };
     }
 }
